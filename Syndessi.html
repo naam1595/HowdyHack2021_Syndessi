@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Syndessi</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="app.min.css">
+		<style>
+      /* TODO */
+		</style>
+	</head>
+
+	<body>
+		<div class="app-page" data-page="home">
+		<div class="app-topbar">
+			<div class="app-title"><span class="app-icon"></span>Welcome</div>
+		</div>
+		<div class="app-content">
+	  
+		<div class="app-content">
+                
+			<div class="app-section">
+				<input class="app-input" placeholder="Email">
+			</div>
+					
+			<div class="app-section">
+				<input class="app-input" placeholder="Password">
+			</div>
+
+			<form class="app-section">
+				<div class="app-button green app-submit" data-target="lists" >Log In</div>
+			</form>
+		  
+		    <div class="app-button" id="new-user" >Click here to sign up</div>
+		  
+	    </div>
+	  		
+	<div class="app-page" data-page="signup">
+	
+		<div class="app-topbar">
+		
+			<div class="left app-button" data-target="home"> < </div>
+			<div class="app-title"><span class="app-icon"></span>Sign up</div>
+			
+		</div>
+
+		<div class="app-content">
+                
+			<div class="app-section">
+				<input class="app-input" placeholder="Your Email">
+			</div>
+                
+            <div class="app-section">
+				<input class="app-input" placeholder="First Name">
+			</div>
+			
+			<div class="app-section">
+				<input class="app-input" placeholder="Last Name">
+			</div>
+			
+			<div class="app-section">
+				<input class="app-input" placeholder="Phone">
+			</div>
+			
+			<div class="app-section">
+				<input class="app-input" placeholder="Password">
+			</div>
+
+			<p class="app-section">
+			   By signing up you agree to our Terms of Use and Privacy Policy
+			</p>
+		
+			<form class="app-section">
+				<div class="app-button black app-submit" data-target="home" >Already have an account? Log in</div>
+			</form>
+			
+		</div>
+		
+	 </div>
+	 
+	 <div class="app-page" data-page="lists">
+			<div class="app-topbar">
+				<div class="right app-button" data-target="home">Log Out</div>
+				<div class="app-title">Action Center</div>
+			</div>
+
+	    <div class="app-content">
+			<ul class="app-list">
+				
+				<label>My Account</label>
+				<li class="app-button dialog1" data-target="lists">Profile</li>
+				<li class="app-button dialog2">Settings</li>
+				<label>Customer Service</label>
+				<li class="app-button dialog3">Chat Access</li>
+				<li class="app-button dialog4">Customer Service Data</li>
+				<label>User Metrics</label>
+				<li class="app-button dialog5">User Metric Search</li>
+				<li class="app-button dialog6">User Metric Data</li>
+				<label>Quality Assurance</label>
+				<li class="app-button dialog7">Feature Testing</li>
+				<li class="app-button dialog8">Developer Access</li>
+				<label>Audit</label>
+				<li class="app-button dialog9">Audit Search</li>
+				<li class="app-button dialog10">Audit Data</li>
+				<label>Tools</label>
+				<li class="app-button dialog11">Documentation</li>
+				<li class="app-button dialog12">Report a ticket</li>
+					
+			</ul>
+		</div>
+	  </div>
+
+    <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script>
+		App.controller('home', function (page) {
+			// put stuff here
+			$(page).find("#new-user").clickable().click(function () {
+            
+				App.load("signup");
+                  
+            })
+		});
+
+		App.controller('lists', function (page) {
+			// put stuff here
+			
+			$(page).find('.dialog1').on('click', function () {
+				App.dialog({title        : 'This is the Profile Page',
+							text         : 'Here you can find information about your Schedule, Checked-in/out Times, Contact Information, and request PTO',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog2').on('click', function () {
+				App.dialog({title        : 'This is the Settings Page',
+							text         : 'Here you can change your settings',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog3').on('click', function () {
+				App.dialog({title        : 'This is the Chat Access Page',
+							text         : 'Here you can access the Customer Service Chat',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog4').on('click', function () {
+				App.dialog({title        : 'This is the Customer Service Data Page',
+							text         : 'Here you can find user information',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog5').on('click', function () {
+				App.dialog({title        : 'This is the User Metrics Search Page',
+							text         : 'Here you can search User Metric Data',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog6').on('click', function () {
+				App.dialog({title        : 'This is the User Metrics Data Page',
+							text         : 'Here you can find User Metric Data',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog7').on('click', function () {
+				App.dialog({title        : 'This is the Feature Testing Page',
+							text         : 'Here you can test the application and website features',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog8').on('click', function () {
+				App.dialog({title        : 'This is Developer Access Page',
+							text         : 'Here you can access developer tools',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog9').on('click', function () {
+				App.dialog({title        : 'This is the Audit Search Page',
+							text         : 'Here you can search Audit Data',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog10').on('click', function () {
+				App.dialog({title        : 'This is Audit Data Page',
+							text         : 'Here you can find Audit Data',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog11').on('click', function () {
+				App.dialog({title        : 'This is Documentation Page',
+							text         : 'Here you can find documentation the like User Manual and the Training Guide',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+						   }, function (choice) {
+								console.log(choice);
+						   });
+			});
+			
+			$(page).find('.dialog12').on('click', function () {
+				App.dialog({title        : 'This is the Report a Ticket Page',
+							text         : 'Here you can report any issues',
+							okButton     : 'Ok',
+							cancelButton : 'Go back'
+							}, function (choice) {
+								console.log(choice);
+							});
+			});
+		});
+	  
+		try {
+			App.restore();
+		} catch (err) {
+			App.load('home');
+		}
+		</script>
+	</body>
+</html>
